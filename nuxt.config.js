@@ -51,6 +51,8 @@ export default {
 
   serverMiddleware: {
     '/api': '~/api'
+
+    //Testing
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
