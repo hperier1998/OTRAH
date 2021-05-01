@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Index from '~/pages/index'
-import Test from '~/pages/testpage'
+import Demo from '~/pages/demo'
+import Register from '~/pages/register'
 import Error404 from '~/pages/error404'
 
 Vue.use(Router)
@@ -17,9 +18,14 @@ export function createRouter() {
         component: Index
       },
       {
-        name: 'testpage',
-        path: '/testpage',
-        component: Test
+        name: 'demo',
+        path: '/demo',
+        component: Demo
+      },
+      {
+        name: 'resgister',
+        path: '/register',
+        component: Register
       },
       {
         name: 'error404',
