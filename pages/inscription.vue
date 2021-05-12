@@ -139,10 +139,6 @@
           <b-button type="reset" variant="danger">Reset</b-button>
         </div>
       </b-form>
-      
-      <b-card class="mt-3" header="Form Data Result">
-        <pre class="m-0">{{ form }}</pre>
-      </b-card>
     </div>
 
     <!-- Footer -->
@@ -203,6 +199,9 @@
 </style>
 
 <script>
+
+  import auth from '../services/auth'
+
   export default {
     data() {
       return {
@@ -218,7 +217,7 @@
           postal: '',
           country: null,
         },
-        countries: [{ text: 'Selectionez un pay', value: null }, 'France', 'Royaume Uni', 'Etat-Unis', 'Australie', 'Autre'],
+        countries: [{ text: 'Selectionez un pays', value: null }, 'France', 'Royaume Uni', 'Etat-Unis', 'Australie', 'Autre'],
         show: true
       }
     },
@@ -226,6 +225,7 @@
       onSubmit(event) {
         event.preventDefault()
         alert(JSON.stringify(this.form))
+        this.register()
       },
       onReset(event) {
         event.preventDefault()
@@ -244,6 +244,20 @@
         this.show = false
         this.$nextTick(() => {
           this.show = true
+        })
+      },
+      async register(){
+        await auth.register({
+          prenom:this.form.firstname,
+          nom:this.form.lastname,
+          email:this.form.email,
+          tel:this.form.tel,
+          password:this.form.password,
+          datenaissance:this.form.dob,
+          adresse:this.form.address,
+          ville:this.form.city,
+          codepostal:this.form.postal,
+          pays:this.form.country,
         })
       }
     }

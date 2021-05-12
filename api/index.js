@@ -5,14 +5,15 @@ const app = express()
 
 // Require API routes
 // const users = require('./routes/users')
-const test = require('./routes/test')
+const routes = require('./routes/routes')
 
 // Import API Routes
 // app.use(users)
-app.use(test)
+app.use(express.json())
+app.use(express.urlencoded())
+app.use(routes)
 
-// Export express app
-module.exports = app
+// require('./routes/routes')(app)
 
 // Start standalone server if directly running
 if (require.main === module) {
@@ -22,3 +23,5 @@ if (require.main === module) {
     console.log(`API server listening on port ${port}`)
   })
 }
+
+module.exports = app
