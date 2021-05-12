@@ -11,9 +11,10 @@
         <b-navbar-nav>
           <b-nav-item href="/">Acceuil</b-nav-item>
           <b-nav-item href="/demo">Demo</b-nav-item>
-          <b-nav-item href="/">Session</b-nav-item>
+          <b-nav-item href="/session">Session</b-nav-item>
           <b-nav-item href="/">Classement</b-nav-item>
-          <b-nav-item href="/">A Propos</b-nav-item>
+          <b-nav-item href="https://www.ontheroadagame.fr/notre-equipe-de-voya-joueurs/" target="_blank">A Propos</b-nav-item>
+          <b-nav-item href="https://www.ontheroadagame.fr/goodies/" target="_blank">Goodies</b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
@@ -21,10 +22,10 @@
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
             <template #button-content>
-              <em>User</em>
+              <em>Utilisateur</em>
             </template>
-            <b-dropdown-item href="#">Sign In</b-dropdown-item>
-            <b-dropdown-item href="/register">Register</b-dropdown-item>
+            <b-dropdown-item href="/connexion">Connexion</b-dropdown-item>
+            <b-dropdown-item href="/inscription">Inscription</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
@@ -135,7 +136,7 @@
     </div>
 
     <div class="sesbutton-position">
-      <b-button pill variant="warning" size="lg" to="/">S'inscrire a une session</b-button>
+      <b-button pill variant="warning" size="lg" to="/session">S'inscrire a une session</b-button>
     </div>
 
     <!-- Footer -->

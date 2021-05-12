@@ -3,7 +3,9 @@ import Router from 'vue-router'
 
 import Index from '~/pages/index'
 import Demo from '~/pages/demo'
-import Register from '~/pages/register'
+import Session from '~/pages/session'
+import Inscription from '~/pages/inscription'
+import Connexion from '~/pages/connexion'
 import Error404 from '~/pages/error404'
 
 Vue.use(Router)
@@ -23,9 +25,19 @@ export function createRouter() {
         component: Demo
       },
       {
-        name: 'resgister',
-        path: '/register',
-        component: Register
+      name: 'session',
+      path: '/session',
+      component: Session
+      },
+      {
+        name: 'inscription',
+        path: '/inscription',
+        component: Inscription
+      },
+      {
+        name: 'connexion',
+        path: '/connexion',
+        component: Connexion
       },
       {
         name: 'error404',

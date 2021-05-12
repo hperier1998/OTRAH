@@ -1,6 +1,6 @@
 <template>
   <div>
-      <b-navbar toggleable="lg" type="light" variant="warning">
+    <b-navbar toggleable="lg" type="light" variant="warning">
       <b-navbar-brand to="/">
         <img src="@/images/OTRAG_Logo.png" alt="OnTheRoadAGameLogo">
       </b-navbar-brand>
@@ -31,21 +31,33 @@
       </b-collapse>
     </b-navbar>
 
-    <div>
-      <h1 class="demo-title">Titre de la Demo</h1>
-      <h5 class="text-center"> Ici vous pouvez experiencé On The Road A Game : At Home avant de vous inscricre! </h5>
-      <h3 class="defi-title"> Le Défi </h3>
-      <p class="description-position"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae arcu nisi. Phasellus vitae aliquet ipsum, ut pretium sapien. In fermentum sem et accumsan venenatis. Duis dignissim sed felis vitae ultricies. Phasellus urna diam, vulputate eu rhoncus eu, tristique eu quam. Pellentesque nec lectus arcu. Vivamus nibh purus, dignissim eu eleifend in, sodales nec orci. Integer elementum iaculis faucibus. Praesent iaculis sit amet mi a sodales. In hac habitasse platea dictumst. Cras a eros feugiat, gravida ligula in, vestibulum dolor. Nulla vestibulum, leo non euismod facilisis, neque sapien interdum leo, ut ultricies risus leo id felis. Suspendisse diam massa, semper in accumsan quis, sodales sed velit. </p>
-      <p class="description-position"> Praesent lobortis, arcu interdum rhoncus elementum, libero ipsum volutpat magna, in aliquet tellus enim id nulla. Proin interdum commodo enim, non imperdiet nisl viverra quis. Nulla non tortor facilisis erat posuere sagittis. Praesent est lectus, varius eu lectus auctor, luctus condimentum nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras sed tempus metus. Pellentesque a tellus non augue dictum pretium. Sed vestibulum nunc non ex aliquam, rutrum bibendum ligula dictum. Aliquam id leo non ex iaculis viverra. Ut facilisis lectus eget vestibulum consequat. Vivamus nec accumsan libero, a tincidunt ex. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec ut enim tortor. Vestibulum congue finibus dolor in euismod.</p>
-    </div>
+    <div class="container">
+      <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+        <b-form-group id="input-group-1" label="Email:" label-for="input-1">
+          <b-form-input
+            id="input-1"
+            v-model="form.email"
+            type="email"
+            placeholder="E-mail"
+            required
+          ></b-form-input>
+        </b-form-group>
 
-    <div>
-      <b-embed
-        type="iframe"
-        aspect="16by9"
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-        allowfullscreen
-      ></b-embed>
+        <b-form-group id="input-group-2" label="Password:" label-for="input-2">
+          <b-form-input
+            id="input-2"
+            v-model="form.password"
+            type="password"
+            placeholder="Mot de passe"
+            required
+          ></b-form-input>
+        </b-form-group>
+
+        <div class="text-center">
+          <b-button type="submit" variant="primary">Se Connecter</b-button>
+          <b-button variant="primary" to="/profile">Mot de Passe Oublier</b-button>
+        </div>
+      </b-form>
     </div>
 
     <!-- Footer -->
@@ -57,7 +69,6 @@
           <!--Grid column-->
           <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
             <h5 class="text-uppercase">A propos de On The Road a Game</h5>
-
             <p>
               On The Road a Game est un voyage-jeu organisé par l'agence JMB Voyages.
               Mi-voyage mystère, mi-voyage aventure, 100% découverte, cette expérience unique vous ramène aux origines du voyage : la rencontre...
@@ -100,28 +111,40 @@
 </template>
 
 <style>
-.demo-title {
-  text-align: center;
-  margin-top: 1em;
-  margin-bottom: 1em;
+.container {
+  margin-top: 15em;
+  margin-top: 15em;
+  padding: 50px;
 }
-
-.defi-title {
-  text-align: center;
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
-.description-position {
-  text-align: center;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-  margin-bottom: 1.5em;
-}
-
-
 </style>
 
+
 <script>
-  export default {}
+  export default {
+    data() {
+      return {
+        form: {
+        },
+        show: true
+      }
+    },
+    methods: {
+      onSubmit(event) {
+        event.preventDefault()
+        alert(JSON.stringify(this.form))
+      },
+      onReset(event) {
+        event.preventDefault()
+        // Reset our form values
+        this.form.email = null
+        this.form.password = null
+
+        // Trick to reset/clear native browser form validation state
+        this.show = false
+        this.$nextTick(() => {
+          this.show = true
+        })
+      }
+    }
+  }
 </script>

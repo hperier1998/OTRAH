@@ -13,7 +13,8 @@
           <b-nav-item href="/demo">Demo</b-nav-item>
           <b-nav-item href="/">Session</b-nav-item>
           <b-nav-item href="/">Classement</b-nav-item>
-          <b-nav-item href="/">A Propos</b-nav-item>
+          <b-nav-item href="https://www.ontheroadagame.fr/notre-equipe-de-voya-joueurs/" target="_blank">A Propos</b-nav-item>
+          <b-nav-item href="https://www.ontheroadagame.fr/goodies/" target="_blank">Goodies</b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
@@ -21,15 +22,16 @@
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
             <template #button-content>
-              <em>User</em>
+              <em>Utilisateur</em>
             </template>
-            <b-dropdown-item href="#">Sign In</b-dropdown-item>
-            <b-dropdown-item href="/register">Register</b-dropdown-item>
+            <b-dropdown-item href="#">Connexion</b-dropdown-item>
+            <b-dropdown-item href="/inscription">Inscription</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <div>
+
+    <div class="container">
       <b-form @submit="onSubmit" @reset="onReset" v-if="show">
         <b-form-group id="input-group-1" label="Prénom:" label-for="input-1">
           <b-form-input
@@ -132,8 +134,10 @@
             ></b-form-select>
           </b-form-group>
 
-        <b-button type="submit" variant="primary">Submit</b-button>
-        <b-button type="reset" variant="danger">Reset</b-button>
+        <div class="text-center">
+          <b-button type="submit" variant="primary">Submit</b-button>
+          <b-button type="reset" variant="danger">Reset</b-button>
+        </div>
       </b-form>
       
       <b-card class="mt-3" header="Form Data Result">
@@ -191,7 +195,13 @@
 
   </div>
 </template>
-<
+
+<style>
+.container {
+  padding: 25px;
+}
+</style>
+
 <script>
   export default {
     data() {
