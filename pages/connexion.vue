@@ -31,7 +31,10 @@
       </b-collapse>
     </b-navbar>
 
-    <div class="container">
+    <div class="connection-container">
+      <div class="text-center">
+        <h2> Connectez vous </h2>
+      </div>
       <b-form @submit="onSubmit" @reset="onReset" v-if="show">
         <b-form-group id="input-group-1" label="Email:" label-for="input-1">
           <b-form-input
@@ -111,19 +114,22 @@
 </template>
 
 <style>
-.container {
-  margin-top: 15em;
-  margin-top: 15em;
-  padding: 50px;
+.connection-container {
+  padding: 200px;
+  margin-top: 3em;
+  margin-bottom: 5em;
 }
 </style>
 
-
 <script>
+  import auth from '../services/auth'
+
   export default {
     data() {
       return {
         form: {
+          email: '',
+          password: '',
         },
         show: true
       }
@@ -131,7 +137,7 @@
     methods: {
       onSubmit(event) {
         event.preventDefault()
-        alert(JSON.stringify(this.form))
+        this.login()
       },
       onReset(event) {
         event.preventDefault()
@@ -144,6 +150,12 @@
         this.$nextTick(() => {
           this.show = true
         })
+      },
+      async login(){
+        await auth.login({
+          email:this.form.email,
+          password:this.form.password,
+        }).then(response => {console.log(response)})
       }
     }
   }

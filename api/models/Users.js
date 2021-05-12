@@ -14,6 +14,22 @@ class Users {
             console.log(err)
         }
     }
+
+    static login (content, cb) {
+        try {            
+            connection.query('SELECT * FROM utilisateur WHERE email = ? LIMIT 1', [content.email], 
+            (err, result) => {
+                if(err) throw err
+                
+                if (result.length > 0 && content.email == result[0].Email && content.password == result[0].Password) {
+                    cb(result)
+                }
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
 }
 
 module.exports = Users

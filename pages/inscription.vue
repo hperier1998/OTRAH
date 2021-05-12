@@ -31,7 +31,7 @@
       </b-collapse>
     </b-navbar>
 
-    <div class="container">
+    <div>
       <b-form @submit="onSubmit" @reset="onReset" v-if="show">
         <b-form-group id="input-group-1" label="Prénom:" label-for="input-1">
           <b-form-input
@@ -192,12 +192,6 @@
   </div>
 </template>
 
-<style>
-.container {
-  padding: 25px;
-}
-</style>
-
 <script>
 
   import auth from '../services/auth'
@@ -224,8 +218,8 @@
     methods: {
       onSubmit(event) {
         event.preventDefault()
-        alert(JSON.stringify(this.form))
         this.register()
+        window.location.href = "/connexion"
       },
       onReset(event) {
         event.preventDefault()
@@ -258,7 +252,7 @@
           ville:this.form.city,
           codepostal:this.form.postal,
           pays:this.form.country,
-        })
+        }).then(response => {console.log(response)})
       }
     }
   }

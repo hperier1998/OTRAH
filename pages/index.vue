@@ -87,7 +87,7 @@
 
     <div class="text-center">
       <h2 class="concept-spacing">Le Concept </h2>
-      <b-container >
+      <b-container>
         <b-row>
           <b-col>
             <b-img src="@/images/Flashcard1.png" fluid alt="Responsive image"></b-img>
@@ -104,7 +104,7 @@
           <b-col>Column</b-col>
         </b-row>
       </b-container>
-            <b-container>
+      <b-container>
         <b-row>
           <b-col>
             <b-img src="@/images/Flashcard1.png" fluid alt="Responsive image"></b-img>
@@ -190,10 +190,6 @@
 </template>
 
 <style>
-.container {
-  min-height: 30vh
-}
-
 .session {
   text-align: center;
   margin-top: 3em;
@@ -205,6 +201,7 @@
 
 .concept-spacing {
   margin-top: 2.5em;
+  margin-bottom: 2.5em;
 }
 
 .sesbutton-position {

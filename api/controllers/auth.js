@@ -9,5 +9,15 @@ module.exports = {
         } catch (error) {
             
         }
+    },
+
+    async login(req, res){
+        try {
+            await Users.login(req.body, function(data){
+                res.send(data)
+            })
+        } catch (error) {
+            
+        }
     }
 }

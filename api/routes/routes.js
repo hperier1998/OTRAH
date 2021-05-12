@@ -10,8 +10,10 @@ router.get('/Users', (req, res)=>{
   res.send('plop')
 })
 
-router.use('/Users', (req, res) => {
-  res.send(req)
+router.post('/Login', auth.login)
+
+router.get('/Login', (req, res) => {
+  res.send('foo')
 })
 
 module.exports = router
