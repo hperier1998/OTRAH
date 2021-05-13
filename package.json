@@ -22,7 +22,9 @@
     "nuxt": "^2.15.4",
     "tls": "0.0.1",
     "vue2-flip-countdown": "^0.11.1",
-    "vuejs-countdown": "^0.2.1"
+    "vuejs-countdown": "^0.2.1",
+    "vuex": "^3.6.2",
+    "vuex-persistedstate": "^4.0.0-beta.3"
   },
   "devDependencies": {
     "@nuxtjs/router": "^1.6.1"

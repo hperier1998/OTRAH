@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Index from '~/pages/index'
 import Demo from '~/pages/demo'
 import Session from '~/pages/session'
+import Classement from '~/pages/classement'
 import Inscription from '~/pages/inscription'
 import Connexion from '~/pages/connexion'
 import Error404 from '~/pages/error404'
@@ -25,9 +26,14 @@ export function createRouter() {
         component: Demo
       },
       {
-      name: 'session',
-      path: '/session',
-      component: Session
+        name: 'session',
+        path: '/session',
+        component: Session
+      },
+      {
+        name: 'classement',
+        path: '/classement',
+        component: Classement
       },
       {
         name: 'inscription',
