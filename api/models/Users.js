@@ -30,6 +30,104 @@ class Users {
             console.log(err)
         }
     }
+    
+    static emailModify (content, cb) {
+        try {         
+            console.log(content)   
+            connection.query('UPDATE utilisateur SET Email = ? WHERE ID = ?', [content.email, content.ID], 
+            (err, result) => {
+                if(err) throw err
+                cb(result)
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
+    static telModify (content, cb) {
+        try {          
+            console.log(content)  
+            connection.query('UPDATE utilisateur SET Tel = ? WHERE ID = ?', [content.tel, content.ID], 
+            (err, result) => {
+                if(err) throw err
+                cb(result)
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
+    static postalcodeModify (content, cb) {
+        try {          
+            console.log(content)  
+            connection.query('UPDATE utilisateur SET CodePostal = ? WHERE ID = ?', [content.codepostal, content.ID], 
+            (err, result) => {
+                if(err) throw err
+                cb(result)
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
+    static villeModify (content, cb) {
+        try {          
+            console.log(content)  
+            connection.query('UPDATE utilisateur SET Ville = ? WHERE ID = ?', [content.ville, content.ID], 
+            (err, result) => {
+                if(err) throw err
+                cb(result)
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
+    static adresseModify (content, cb) {
+        try {          
+            console.log(content)  
+            connection.query('UPDATE utilisateur SET Adresse = ? WHERE ID = ?', [content.adresse, content.ID], 
+            (err, result) => {
+                if(err) throw err
+                cb(result)
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
+    static paysModify (content, cb) {
+        try {          
+            console.log(content)  
+            connection.query('UPDATE utilisateur SET Pays = ? WHERE ID = ?', [content.pays, content.ID], 
+            (err, result) => {
+                if(err) throw err
+                cb(result)
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
+    static passwordModify (content, cb) {
+        try {          
+            console.log(content)  
+            connection.query('UPDATE utilisateur SET Password = ? WHERE ID = ?', [content.password, content.ID], 
+            (err, result) => {
+                if(err) throw err
+                cb(result)
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
 }
 
 module.exports = Users

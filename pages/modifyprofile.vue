@@ -114,22 +114,24 @@
       onSubmit(event) {
         event.preventDefault()
         this.modify()
-        this.$router.push({name: 'index'})
+        this.$router.push({name: 'profile'})
       },
 
       async modify(){
-        await auth.modify({
-          prenom:this.form.firstname,
-          nom:this.form.lastname,
-          email:this.form.email,
-          tel:this.form.tel,
-          password:this.form.password,
-          datenaissance:this.form.dob,
-          adresse:this.form.address,
-          ville:this.form.city,
-          codepostal:this.form.postal,
-          pays:this.form.country,
-        }).then(response => {console.log(response)})
+        try {
+          await auth.modify({
+            email:this.form.email,
+            tel:this.form.tel,
+            password:this.form.password,
+            adresse:this.form.address,
+            ville:this.form.city,
+            codepostal:this.form.postal,
+            pays:this.form.country,
+            ID:this.$store.state.user.user[0].ID
+        })
+        } catch (error) {
+          console.log(error)
+        }
       }
     }
   }

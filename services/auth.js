@@ -8,5 +8,9 @@ export default {
 
     login(data){
         return api().post('/Login', data)
+    },
+
+    modify(data){
+        return api().post('/Modify', data)
     }
 }

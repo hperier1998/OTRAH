@@ -19,5 +19,34 @@ module.exports = {
         } catch (error) {
             
         }
+    },
+
+    async modify(req, res){
+        try {
+            if(req.body.email != ''){
+                await Users.emailModify(req.body, function(callback){})
+            }
+            if(req.body.tel != ''){
+                await Users.telModify(req.body, function(callback){})
+            }
+            if(req.body.codepostal != ''){
+                await Users.codepostalModify(req.body, function(callback){})
+            }
+            if(req.body.ville != ''){
+                await Users.villeModify(req.body, function(callback){})
+            }
+            if(req.body.adresse != ''){
+                await Users.adresseModify(req.body, function(callback){})
+            }
+            if(req.body.pays != null){
+                await Users.paysModify(req.body, function(callback){})
+            }
+            if(req.body.password != ''){
+                await Users.passwordModify(req.body, function(callback){})
+            }
+            res.send('Utilisateur mis a jour')
+        } catch (error) {
+            console.log(err)
+        }
     }
 }
