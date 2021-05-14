@@ -7,111 +7,76 @@
         <h1> Modifiez votre profile </h1>
       </div>
 
-      <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-        <b-form-group id="input-group-1" label="Prénom:" label-for="input-1">
-          <b-form-input
-            id="input-1"
-            v-model="form.firstname"
-            placeholder="Entrez votre prénom"
-            required
-          ></b-form-input>
-        </b-form-group>
-
-        <b-form-group id="input-group-2" label="Nom:" label-for="input-2">
-          <b-form-input
-            id="input-2"
-            v-model="form.lastname"
-            placeholder="Entrez votre nom"
-            required
-          ></b-form-input>
-        </b-form-group>
+      <b-form @submit="onSubmit" v-if="show">
 
           <b-form-group
-            id="input-group-3"
+            id="input-group-1"
             label="Email:"
-            label-for="input-3"
+            label-for="input-1"
           >
             <b-form-input
-              id="input-3"
+              id="input-1"
               v-model="form.email"
               type="email"
               placeholder="Entrez votre e-mail"
-              required
             ></b-form-input>
           </b-form-group>
 
-          <b-form-group id="input-group-4" label="Telephone:" label-for="input-4">
+          <b-form-group id="input-group-2" label="Telephone:" label-for="input-2">
             <b-form-input
-              id="input-4"
+              id="input-2"
               v-model="form.tel"
               type="tel"
               placeholder="Entrez votre numero de telephone"
-              required
             ></b-form-input>
           </b-form-group>
 
-          <b-form-group id="input-group-5" label="Mot de passe:" label-for="input-5">
+          <b-form-group id="input-group-3" label="Mot de passe:" label-for="input-3">
             <b-form-input
-              id="input-5"
+              id="input-3"
               v-model="form.password"
               type="password"
               placeholder="Entrez votre mot de passe"
-              required
             ></b-form-input>
           </b-form-group>
 
-          <b-form-group id="input-group-6" label="Date de naissance:" label-for="input-6">
+          <b-form-group id="input-group-4" label="Adresse:" label-for="input-4">
             <b-form-input
-              id="input-6"
-              v-model="form.dob"
-              type="date"
-              placeholder="Entrez votre date de naissance"
-              required
-            ></b-form-input>
-          </b-form-group>
-
-          <b-form-group id="input-group-7" label="Adresse:" label-for="input-7">
-            <b-form-input
-              id="input-7"
+              id="input-4"
               v-model="form.address"
               type="text"
               placeholder="Entrez votre adresse"
-              required
             ></b-form-input>
           </b-form-group>
 
-          <b-form-group id="input-group-8" label="Ville:" label-for="input-8">
+          <b-form-group id="input-group-5" label="Ville:" label-for="input-5">
             <b-form-input
-              id="input-8"
+              id="input-5"
               v-model="form.city"
               type="text"
               placeholder="Entrez votre ville"
-              required
             ></b-form-input>
           </b-form-group>
 
-          <b-form-group id="input-group-9" label="Code Postal:" label-for="input-9">
+          <b-form-group id="input-group-6" label="Code Postal:" label-for="input-6">
             <b-form-input
-              id="input-9"
+              id="input-6"
               v-model="form.postal"
               type="text"
               placeholder="Entrez votre code postal"
-              required
             ></b-form-input>
           </b-form-group>
 
-          <b-form-group id="input-group-10" label="Pays:" label-for="input-10">
+          <b-form-group id="input-group-7" label="Pays:" label-for="input-7">
             <b-form-select
-              id="input-10"
+              id="input-7"
               v-model="form.country"
               :options="countries"
-              required
             ></b-form-select>
           </b-form-group>
 
         <div class="text-center">
           <b-button type="submit" variant="primary">Submit</b-button>
-          <b-button type="reset" variant="danger">Reset</b-button>
         </div>
       </b-form>
     </div>
@@ -133,12 +98,9 @@
     data() {
       return {
         form: {
-          firstname: '',
-          lastname: '',
           email: '',
           tel: '',
           password: '',
-          dob: '',
           address: '',
           city: '',
           postal: '',
@@ -154,25 +116,7 @@
         this.modify()
         this.$router.push({name: 'index'})
       },
-      onReset(event) {
-        event.preventDefault()
-        // Reset our form values
-        this.form.firstname = ''
-        this.form.lastname = ''
-        this.form.email = null
-        this.form.tel = null
-        this.form.password = null
-        this.form.dob = null
-        this.form.address = ''
-        this.form.city = ''
-        this.form.postal = ''
-        this.form.country = null
-        // Trick to reset/clear native browser form validation state
-        this.show = false
-        this.$nextTick(() => {
-          this.show = true
-        })
-      },
+
       async modify(){
         await auth.modify({
           prenom:this.form.firstname,

@@ -12,7 +12,9 @@
       <h2> Ville: </h2>
       <h2> Code Postal: </h2>
       <h2> Pays: </h2>
-
+      <div class="sesbutton-position">
+        <b-button pill variant="warning" size="lg" router-link :to="'Modifyprofile'">Modifier votre profil</b-button>
+      </div>
     </div>
 
 

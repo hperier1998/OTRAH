@@ -53,7 +53,7 @@
       </b-carousel-slide>
     </b-carousel>
 
-    <h1 class="text-center"> On The Road a Game : un jeu d'aventure hors du commun pour vivre le voyage autrement </h1>
+    <h1 class="text-center"> On The Road a Game : At Home </h1>
 
 
     <div class="text-center">
