@@ -7,6 +7,7 @@ import Session from '~/pages/session'
 import Classement from '~/pages/classement'
 import Inscription from '~/pages/inscription'
 import Connexion from '~/pages/connexion'
+import Profile from '~/pages/profile'
 import Error404 from '~/pages/error404'
 
 Vue.use(Router)
@@ -44,6 +45,11 @@ export function createRouter() {
         name: 'connexion',
         path: '/connexion',
         component: Connexion
+      },
+      {
+        name: 'profile',
+        path: '/profile',
+        component: Profile
       },
       {
         name: 'error404',

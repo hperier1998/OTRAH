@@ -12,13 +12,10 @@ export const state = () => ({
       else{
         state.isConnected = false
       }
+    },
+
+    logout(state){
+      state.user = null
+      state.isConnected = false
     }
-
-    // remove(state, { user }) {
-    //   state.user.splice(state.user.indexOf(user), 1)
-    // },
-
-    // toggle(user) {
-    //   user.done = !user.done
-    // }
   }

@@ -35,8 +35,8 @@
             <template #button-content>
               <em>Utilisateur</em>
             </template>
-            <b-dropdown-item router-link :to="'Connexion'">Mon Profile</b-dropdown-item>
-            <b-dropdown-item router-link :to="'Inscription'">Deconnexion</b-dropdown-item>
+            <b-dropdown-item router-link :to="'Profile'">Mon Profile</b-dropdown-item>
+            <b-dropdown-item v-on:click="logout()">Deconnexion</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
@@ -48,5 +48,12 @@
 </style>
 
 <script>
-
+ export default {
+    methods: {
+      async logout(){
+          this.$store.commit('user/logout')
+          this.$router.push({name: 'connexion'})
+      }
+    }
+  }
 </script>
