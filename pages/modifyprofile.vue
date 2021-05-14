@@ -3,6 +3,10 @@
     <Navbar/>
     
     <div>
+      <div class="text-center">
+        <h1> Modifiez votre profile </h1>
+      </div>
+
       <b-form @submit="onSubmit" @reset="onReset" v-if="show">
         <b-form-group id="input-group-1" label="Prénom:" label-for="input-1">
           <b-form-input
@@ -147,8 +151,8 @@
     methods: {
       onSubmit(event) {
         event.preventDefault()
-        this.register()
-        this.$router.push({name: 'connexion'})
+        this.modify()
+        this.$router.push({name: 'index'})
       },
       onReset(event) {
         event.preventDefault()
@@ -169,8 +173,8 @@
           this.show = true
         })
       },
-      async register(){
-        await auth.register({
+      async modify(){
+        await auth.modify({
           prenom:this.form.firstname,
           nom:this.form.lastname,
           email:this.form.email,

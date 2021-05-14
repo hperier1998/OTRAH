@@ -33,7 +33,7 @@
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
             <template #button-content>
-              <em>Utilisateur</em>
+              <em id='1'>Prenom</em>
             </template>
             <b-dropdown-item router-link :to="'Profile'">Mon Profile</b-dropdown-item>
             <b-dropdown-item v-on:click="logout()">Deconnexion</b-dropdown-item>
@@ -54,6 +54,12 @@
           this.$store.commit('user/logout')
           this.$router.push({name: 'connexion'})
       }
+    },
+    mounted:function(){
+      if(this.$store.state.user.isConnected){
+        document.getElementById("1").innerHTML=this.$store.state.user.user[0].Prenom
+      }
     }
+    
   }
 </script>

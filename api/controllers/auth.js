@@ -19,15 +19,5 @@ module.exports = {
         } catch (error) {
             
         }
-    },
-
-    async modify(req, res){
-        try {
-            await Users.modify(req.body, function(data){
-                res.send(data)
-            })
-        } catch (error) {
-            
-        }
     }
 }
