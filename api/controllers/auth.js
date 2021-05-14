@@ -48,5 +48,17 @@ module.exports = {
         } catch (error) {
             console.log(err)
         }
+    },
+
+    async refreshVueX(req, res){
+        try { 
+            console.log(req.body)
+            Users.selectUserByID(req.body.ID, function(callback){
+            let user=callback
+            res.send(user)
+            })
+        } catch(err) {
+                console.log(err)
+        }
     }
 }

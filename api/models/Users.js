@@ -22,8 +22,22 @@ class Users {
                 if(err) throw err
                 
                 if (result.length > 0 && content.email == result[0].Email && content.password == result[0].Password) {
-                    cb(result)
+                    cb(result[0])
                 }
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
+    static selectUserByID (content, cb) {
+        try {
+            console.log(content)
+            connection.query('SELECT * FROM utilisateur WHERE ID = ? LIMIT 1', [content], 
+            (err, result) => {
+                if(err) throw err
+                cb(result[0])
             })
         }
         catch(err){
@@ -125,6 +139,30 @@ class Users {
             })
         }
         catch(err){
+            console.log(err)
+        }
+    }
+
+    static getScore (cb){
+        try {
+            connection.query('SELECT Nom,Prenom,score FROM utilisateur WHERE Admin=0 ORDER BY utilisateur.score DESC LIMIT 10',
+            (err,row)=> {
+                if(err) throw err
+                    cb(row)
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    }
+    
+    static userScore (id,cb){
+        try {
+            connection.query('SELECT Nom,Prenom,score FROM utilisateur WHERE ID=?',[id],
+            (err,row)=> {
+                if(err) throw err
+                    cb(row[0])
+            })
+        } catch (err) {
             console.log(err)
         }
     }

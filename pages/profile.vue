@@ -31,15 +31,15 @@
     components: { Navbar, Footer },
 
     mounted:function(){
-      document.getElementsByTagName("h2")[0].innerHTML+=this.$store.state.user.user[0].Prenom
-      document.getElementsByTagName("h2")[1].innerHTML+=this.$store.state.user.user[0].Nom
-      document.getElementsByTagName("h2")[2].innerHTML+=this.$store.state.user.user[0].DateNaissance.substring(0,10)
-      document.getElementsByTagName("h2")[3].innerHTML+=this.$store.state.user.user[0].Email
-      document.getElementsByTagName("h2")[4].innerHTML+=this.$store.state.user.user[0].Tel
-      document.getElementsByTagName("h2")[5].innerHTML+=this.$store.state.user.user[0].Adresse
-      document.getElementsByTagName("h2")[6].innerHTML+=this.$store.state.user.user[0].Ville
-      document.getElementsByTagName("h2")[7].innerHTML+=this.$store.state.user.user[0].CodePostal
-      document.getElementsByTagName("h2")[8].innerHTML+=this.$store.state.user.user[0].Pays
+      document.getElementsByTagName("h2")[0].innerHTML+=this.$store.state.user.user.Prenom
+      document.getElementsByTagName("h2")[1].innerHTML+=this.$store.state.user.user.Nom
+      document.getElementsByTagName("h2")[2].innerHTML+=this.$store.state.user.user.DateNaissance.substring(0,10)
+      document.getElementsByTagName("h2")[3].innerHTML+=this.$store.state.user.user.Email
+      document.getElementsByTagName("h2")[4].innerHTML+=this.$store.state.user.user.Tel
+      document.getElementsByTagName("h2")[5].innerHTML+=this.$store.state.user.user.Adresse
+      document.getElementsByTagName("h2")[6].innerHTML+=this.$store.state.user.user.Ville
+      document.getElementsByTagName("h2")[7].innerHTML+=this.$store.state.user.user.CodePostal
+      document.getElementsByTagName("h2")[8].innerHTML+=this.$store.state.user.user.Pays
     }
   }
 </script>

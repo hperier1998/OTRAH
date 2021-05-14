@@ -127,8 +127,21 @@
             ville:this.form.city,
             codepostal:this.form.postal,
             pays:this.form.country,
-            ID:this.$store.state.user.user[0].ID
+            ID:this.$store.state.user.user.ID
         })
+        let response = await auth.refreshVueX({
+            email:this.form.email,
+            tel:this.form.tel,
+            password:this.form.password,
+            adresse:this.form.address,
+            ville:this.form.city,
+            codepostal:this.form.postal,
+            pays:this.form.country,
+            ID:this.$store.state.user.user.ID
+        })
+        this.$store.commit('user/logout')
+        this.$store.commit('user/add', response.data)
+        document.location.reload()
         } catch (error) {
           console.log(error)
         }

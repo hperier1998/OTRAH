@@ -3,6 +3,7 @@ let { Router } = require('express')
 let router = Router()
 
 import auth from '../controllers/auth'
+import score from '../controllers/score'
 
 router.post('/Users', auth.register)
 
@@ -21,5 +22,11 @@ router.post('/Modify', auth.modify)
 router.get('/Modify', (req, res) => {
   res.send('noo')
 })
+
+router.post('/Refresh', auth.refreshVueX)
+
+router.get('/score',score.getScore)
+
+router.post('/userscore',score.userScore)
 
 module.exports = router

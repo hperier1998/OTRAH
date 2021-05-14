@@ -12,5 +12,9 @@ export default {
 
     modify(data){
         return api().post('/Modify', data)
+    },
+
+    refreshVueX(data){
+        return api().post('/Refresh', data)
     }
 }

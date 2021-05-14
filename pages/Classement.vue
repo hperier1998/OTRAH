@@ -3,23 +3,17 @@
     <Navbar/>
 
     <h1 class="text-center"> Placeholder Classement </h1>
-
-    <div class="session">
-      <h3 class="text-center">Session 1 : Session de Printemps</h3>
-      <div class="sesbutton-position">
-        <b-button pill variant="warning" size="lg" to="/">S'inscrire a cette session</b-button>
-      </div>
-      <no-ssr>
-        <flip-countdown deadline="2022-12-25 00:00:00" class="countdown-pos"></flip-countdown>
-      </no-ssr>
-      <h3 class="text-center">Session 2 : Session d'Été</h3>
-      <div class="sesbutton-position">
-        <b-button pill variant="warning" size="lg" to="/">S'inscrire a cette session</b-button>
-      </div>
-      <no-ssr>
-        <flip-countdown deadline="2023-3-25 00:00:00"></flip-countdown>
-      </no-ssr>
+    <div v-if='!this.$store.state.user.isConnected'>
+      <b-table striped hover :items="scores"></b-table>
     </div>
+
+    <div v-if='this.$store.state.user.isConnected'>
+      <b-table striped hover :items="scores"></b-table>
+      <h2>Mon Classement</h2>
+      <b-table striped hover :items="userscore"></b-table>
+      
+    </div>
+    
 
     <Footer/>
     
@@ -58,13 +52,21 @@
 
   import Footer from './footer.vue'
 
+  import score from '../services/score'
+
   export default {
+    beforeMount(){
+      this.getScore()
+      this.userScore()
+    },
     components: { FlipCountdown, Navbar, Footer },
 
     data() {
       return {
         slide: 0,
-        sliding: null
+        sliding: null,
+        scores: [],
+        userscore:[]
       }
     },
     methods: {
@@ -73,6 +75,14 @@
       },
       onSlideEnd(slide) {
         this.sliding = false
+      },
+      async getScore(){
+        let response = await score.getScore()
+        this.scores = response.data
+      },
+      async userScore(){
+        let res = await score.userScore({id:this.$store.state.user.user.ID})
+        this.userscore.push(res.data)
       }
     }
   }

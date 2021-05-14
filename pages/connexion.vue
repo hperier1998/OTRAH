@@ -91,6 +91,7 @@
         })
         if(response.status == 200){
           this.$store.commit('user/add', response.data)
+          console.log(response.data)
           this.$router.push({name: 'index'})
         }
       }

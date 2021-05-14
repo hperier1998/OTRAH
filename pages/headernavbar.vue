@@ -57,7 +57,7 @@
     },
     mounted:function(){
       if(this.$store.state.user.isConnected){
-        document.getElementById("1").innerHTML=this.$store.state.user.user[0].Prenom
+        document.getElementById("1").innerHTML=this.$store.state.user.user.Prenom
       }
     }
     
