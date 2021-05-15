@@ -2,97 +2,122 @@
   <div>
     <Navbar/>
 
-      <h1 class="text-center"> Les Prochaines Sessions </h1>
+    <div class="spacing">
+      <h1 class="text-center"> Liste de toute les Sessions </h1>
 
       <div v-if='!this.$store.state.user.isConnected'>
-        <div class="session">
-          <h3 class="text-center">Session 1 : Session de Printemps</h3>
-          <div class="sesbutton-position">
-            <b-button pill variant="warning" size="lg" router-link :to="'Connexion'">Veuillez vous connectez</b-button>
-          </div>
-          <no-ssr>
-            <flip-countdown deadline="2022-12-25 00:00:00" class="countdown-pos"></flip-countdown>
-          </no-ssr>
-          <h3 class="text-center">Session 2 : Session d'Été</h3>
-          <div class="sesbutton-position">
-            <b-button pill variant="warning" size="lg" router-link :to="'Connexion'">Veuillez vous connectez</b-button>
-          </div>
-          <no-ssr>
-            <flip-countdown deadline="2023-3-25 00:00:00"></flip-countdown>
-          </no-ssr>
+        <div>
+          <b-table striped hover :items="sessions"></b-table>
+        </div>
+        <div class="sesbutton-position">
+          <b-button pill variant="warning" size="lg" router-link :to="'Connexion'">Veuillez vous connectez</b-button>
         </div>
       </div>
       
-      <div v-if='this.$store.state.user.isConnected'>
-        <div class="session">
-          <h3 class="text-center">Session 1 : Session de Printemps</h3>
-          <div class="sesbutton-position">
-            <b-button pill variant="warning" size="lg" to="/">S'inscrire a cette session</b-button>
-          </div>
-          <no-ssr>
-            <flip-countdown deadline="2022-12-25 00:00:00" class="countdown-pos"></flip-countdown>
-          </no-ssr>
-          <h3 class="text-center">Session 2 : Session d'Été</h3>
-          <div class="sesbutton-position">
-            <b-button pill variant="warning" size="lg" to="/">S'inscrire a cette session</b-button>
-          </div>
-          <no-ssr>
-            <flip-countdown deadline="2023-3-25 00:00:00"></flip-countdown>
-          </no-ssr>
+      <div v-if='this.$store.state.user.isConnected && this.$store.state.user.user.Admin==0 && this.$store.state.user.user.isParticipant==0'>
+        <div>
+          <b-table striped hover :items="sessions"></b-table>
+        </div>
+        <div class="sesbutton-position">
+          <b-button pill variant="warning" size="lg" @click='registerSubmit()'>S'inscrire a la session active</b-button>
         </div>
       </div>
 
+      <div v-if='this.$store.state.user.isConnected && this.$store.state.user.user.Admin==1'>
+        <div>
+          <b-table striped hover :items="sessions"></b-table>
+        </div>
+        <div class="sesbutton-position">
+          <b-button pill variant="warning" size="lg" router-link :to="'Creationsession'">Creer une session</b-button>
+        </div>
+        <div class="sesbutton-position">
+          <b-button pill variant="warning" size="lg" router-link :to="'Modifsession'">Modifier les sessions</b-button>
+        </div>
+      </div>
+
+      <div v-if='this.$store.state.user.isConnected && this.$store.state.user.user.Admin==0 && this.$store.state.user.user.isParticipant==1'>
+        <div>
+          <b-table striped hover :items="sessions"></b-table>
+        </div>
+        <div class="sesbutton-position">
+          <b-button pill variant="warning" size="lg" disabled>Vous etes deja inscrit a la session active</b-button>
+          <b-button pill variant="warning" size="lg" router-link :to="'Defi'">Voire les Défis</b-button>
+        </div>
+      </div>
+
+    </div>
     <Footer/>  
   </div>
 </template>
 
 <style>
-.container {
-  min-height: 30vh
-}
-
-.session {
-  text-align: center;
-  margin-top: 3em;
-}
-
-.session-spacing {
-  margin-bottom: 2.5em;
-}
-
-.concept-spacing {
-  margin-top: 2.5em;
-}
-
 .sesbutton-position {
   text-align: center;
   margin-bottom: 2em;
 }
 
+.spacing {
+  margin-top: 10em;
+}
 </style>
 
 <script>
-  import FlipCountdown from 'vue2-flip-countdown'
 
   import Navbar from './headernavbar.vue'
 
   import Footer from './footer.vue'
 
+  import ses from '../services/ses'
+
+  import auth from '../services/auth'
+
   export default {
-    components: { FlipCountdown, Navbar, Footer },
+    beforeMount(){
+      this.getSession()
+    },
 
     data() {
-      return {
-        slide: 0,
-        sliding: null
-      }
-    },
-    methods: {
-      onSlideStart(slide) {
-        this.sliding = true
+        return {
+          sessions: [],
+
+          participation: {
+            participating: '1'
+          }
+        }
       },
-      onSlideEnd(slide) {
-        this.sliding = false
+
+    components: { Navbar, Footer },
+
+    methods: {
+
+      registerSubmit() {
+        this.addUsersession()
+        this.$router.push({name: 'session'})
+      },
+
+        async getSession(){
+          let response = await ses.getSession()
+          this.sessions = response.data
+        },
+
+        async addUsersession(){
+          try {
+            await auth.addUsersession({
+              ID:this.$store.state.user.user.ID,
+              isParticipant: this.participation.participating
+            })
+
+            let response = await auth.refreshVueX({
+              ID:this.$store.state.user.user.ID,
+              isParticipant: this.participation.participating
+            })
+
+            this.$store.commit('user/logout')
+            this.$store.commit('user/add', response.data)
+            document.location.reload()
+        } catch (error) {
+          console.log(error)
+        }
       }
     }
   }

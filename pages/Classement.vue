@@ -1,17 +1,17 @@
 <template>
   <div>
     <Navbar/>
+    <div class="spacing">
+        <h1 class="text-center"> Classement De La Session Active </h1>
+        
+        <div>
+          <b-table striped hover :items="scores"></b-table>
+        </div>
 
-    <h1 class="text-center"> Placeholder Classement </h1>
-    <div v-if='!this.$store.state.user.isConnected'>
-      <b-table striped hover :items="scores"></b-table>
-    </div>
-
-    <div v-if='this.$store.state.user.isConnected'>
-      <b-table striped hover :items="scores"></b-table>
-      <h2>Mon Classement</h2>
-      <b-table striped hover :items="userscore"></b-table>
-      
+        <div v-if='this.$store.state.user.isConnected && this.$store.state.user.user.Admin==0'>
+          <h2>Mon Classement</h2>
+          <b-table striped hover :items="userscore"></b-table>
+        </div>
     </div>
     
 
@@ -21,28 +21,15 @@
 </template>
 
 <style>
-.container {
-  min-height: 30vh
-}
-
-.session {
-  text-align: center;
-  margin-top: 3em;
-}
-
-.session-spacing {
-  margin-bottom: 2.5em;
-}
-
-.concept-spacing {
-  margin-top: 2.5em;
-}
-
 .sesbutton-position {
   text-align: center;
   margin-bottom: 2em;
 }
 
+.spacing {
+  margin-top: 10em;
+  margin-bottom: 10em;
+}
 </style>
 
 <script>

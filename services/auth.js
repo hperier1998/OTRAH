@@ -16,5 +16,9 @@ export default {
 
     refreshVueX(data){
         return api().post('/Refresh', data)
+    },
+
+    addUsersession(data){
+        return api().post('/Addusersession', data)
     }
 }

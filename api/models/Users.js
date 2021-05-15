@@ -166,6 +166,18 @@ class Users {
             console.log(err)
         }
     }
+
+    static addUserses(content, cb){
+        try {
+            connection.query('UPDATE utilisateur SET isParticipant = ? WHERE ID = ?', [content.isParticipant, content.ID],
+            (err,row)=> {
+                if(err) throw err
+                    cb(row)
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    }
 }
 
 module.exports = Users

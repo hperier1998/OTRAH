@@ -9,6 +9,9 @@ import Inscription from '~/pages/inscription'
 import Connexion from '~/pages/connexion'
 import Profile from '~/pages/profile'
 import Modifyprofile from '~/pages/modifyprofile'
+import Creationsession from '~/pages/creationsession'
+import Modifsession from '~/pages/modifsession'
+import Defi from '~/pages/defi'
 import Error404 from '~/pages/error404'
 
 Vue.use(Router)
@@ -56,6 +59,21 @@ export function createRouter() {
         name: 'modifyprofile',
         path: '/modifyprofile',
         component: Modifyprofile
+      },
+      {
+        name: 'creationsession',
+        path: '/creationsession',
+        component: Creationsession
+      },
+      {
+        name: 'modifsession',
+        path: '/modifsession',
+        component: Modifsession
+      },
+      {
+        name: 'defi',
+        path: '/defi',
+        component: Defi
       },
       {
         name: 'error404',

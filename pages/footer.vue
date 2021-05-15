@@ -1,6 +1,7 @@
 <template>
   <div>
     <!-- Footer -->
+    <div>
     <footer class="bg-warning text-center text-lg-start">
       <!-- Grid container -->
       <div class="container p-4">
@@ -50,6 +51,7 @@
 
     </footer>
     <!-- Footer -->
+    </div>
   </div>
 </template>
 

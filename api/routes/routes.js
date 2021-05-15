@@ -4,6 +4,7 @@ let router = Router()
 
 import auth from '../controllers/auth'
 import score from '../controllers/score'
+import ses from '../controllers/ses'
 
 router.post('/Users', auth.register)
 
@@ -25,8 +26,16 @@ router.get('/Modify', (req, res) => {
 
 router.post('/Refresh', auth.refreshVueX)
 
-router.get('/score',score.getScore)
+router.get('/score', score.getScore)
 
-router.post('/userscore',score.userScore)
+router.post('/userscore', score.userScore)
+
+router.post('/Createses', ses.registerSes)
+
+router.post('/Modifyses', ses.modifySes)
+
+router.get('/Fetchses', ses.getSession)
+
+router.post('/Addusersession', auth.addUsertosession)
 
 module.exports = router

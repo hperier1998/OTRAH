@@ -60,5 +60,16 @@ module.exports = {
         } catch(err) {
                 console.log(err)
         }
+    },
+
+    async addUsertosession(req, res){
+        try {
+            await Users.addUserses(req.body, function(data){
+                console.log('Ok')
+                res.send(data)
+            })
+        } catch (error) {
+            
+        }
     }
 }
