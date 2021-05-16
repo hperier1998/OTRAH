@@ -121,6 +121,46 @@ class Sessions {
             console.log(err)
         }
     }
+
+    static getDefiname (cb){
+        try {
+            connection.query('SELECT Titre FROM defi',
+            (err,row)=> {
+                if(err) throw err
+                    cb(row)
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    static defititleModify (content, cb) {
+        try {         
+            console.log(content)   
+            connection.query('UPDATE defi SET Titre = ? WHERE Titre = ?', [content.titredefi, content.selecttitledefi], 
+            (err, result) => {
+                if(err) throw err
+                cb(result)
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
+    static defidescModify (content, cb) {
+        try {         
+            console.log(content)   
+            connection.query('UPDATE defi SET Description = ? WHERE Titre = ?', [content.descriptiondefi, content.selecttitledefi], 
+            (err, result) => {
+                if(err) throw err
+                cb(result)
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
 }
 
 module.exports = Sessions

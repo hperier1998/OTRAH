@@ -82,4 +82,26 @@ module.exports = {
             
         }
     },
+
+    async getDefinames(req, res){
+        try {
+            await Sessions.getDefiname(function(callback){res.send(callback)})
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    async modifyDefi(req, res){
+        try {
+            if(req.body.descriptiondefi != ''){
+                await Sessions.defidescModify(req.body, function(callback){})
+            }
+            if(req.body.titredefi != ''){
+                await Sessions.defititleModify(req.body, function(callback){})
+            }
+            res.send('Defi mis a jour')
+        } catch (error) {
+            console.log(err)
+        }
+    },
 }

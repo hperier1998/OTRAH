@@ -25,6 +25,14 @@ export default {
     registerDefi(data){
         console.log(data)
         return api().post('/Createdefi', data)
-    }
+    },
+
+    getDefinames(){
+        return api().get('/Fetchdefiname')
+    },
+
+    modifyDefi(data){
+        return api().post('/Modifydefi', data)
+    },
 
 }

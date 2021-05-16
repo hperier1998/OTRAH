@@ -13,6 +13,7 @@ import Creationsession from '~/pages/creationsession'
 import Modifsession from '~/pages/modifsession'
 import Defi from '~/pages/defi'
 import Creationdefi from '~/pages/creationdefi'
+import Modifdefi from '~/pages/modifdefi'
 import Error404 from '~/pages/error404'
 
 Vue.use(Router)
@@ -80,6 +81,11 @@ export function createRouter() {
         name: 'creationdefi',
         path: '/creationdefi',
         component: Creationdefi
+      },
+      {
+      name: 'modifdefi',
+      path: '/modifdefi',
+      component: Modifdefi
       },
       {
         name: 'error404',
