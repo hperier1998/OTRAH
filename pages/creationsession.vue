@@ -33,19 +33,18 @@
             ></b-form-input>
           </b-form-group>
 
-          <b-form-group id="input-group-4" label="Description:" label-for="input-5">
-            <b-form-input
+          <b-form-group id="input-group-4" label="Session Actif:" label-for="input-4">
+            <b-form-select
               id="input-4"
-              v-model="form.desc"
-              type="text"
-              placeholder="Entrez la description"
+              v-model="form.act"
+              :options="active"
               required
-            ></b-form-input>
+            ></b-form-select>
           </b-form-group>
 
         <div class="text-center">
-          <b-button type="submit" variant="primary">Submit</b-button>
-          <b-button type="reset" variant="danger">Reset</b-button>
+          <b-button type="submit" variant="primary">Valider</b-button>
+          <b-button type="reset" variant="danger">Réinitialiser</b-button>
         </div>
       </b-form>
     </div>
@@ -70,8 +69,9 @@
           title: '',
           datestart: '',
           dateend: '',
-          desc: '',
+          act: null
         },
+        active: [{ text: 'Selectionez un statut', value: null}, 'Session Actif', 'Non Actif'],
         show: true
       }
     },
@@ -87,7 +87,7 @@
         this.form.title = ''
         this.form.datestart = null
         this.form.dateend = null
-        this.form.desc = ''
+        this.form.act = null
         // Trick to reset/clear native browser form validation state
         this.show = false
         this.$nextTick(() => {
@@ -99,7 +99,7 @@
           titre:this.form.title,
           datedebut:this.form.datestart,
           datefin:this.form.dateend,
-          description:this.form.desc
+          sessionactive:this.form.act
         }).then(response => {console.log(response)})
       }
     }

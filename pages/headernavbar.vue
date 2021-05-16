@@ -8,10 +8,29 @@
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav>
+        <b-navbar-nav v-if='!this.$store.state.user.isConnected'>
           <b-nav-item router-link :to="'/'">Acceuil</b-nav-item>
           <b-nav-item router-link :to="'Demo'">Demo</b-nav-item>
           <b-nav-item router-link :to="'Session'">Session</b-nav-item>
+          <b-nav-item router-link :to="'Classement'">Classement</b-nav-item>
+          <b-nav-item href="https://www.ontheroadagame.fr/notre-equipe-de-voya-joueurs/" target="_blank">A Propos</b-nav-item>
+          <b-nav-item href="https://www.ontheroadagame.fr/goodies/" target="_blank">Goodies</b-nav-item>
+        </b-navbar-nav>
+
+        <b-navbar-nav v-if='this.$store.state.user.isConnected && this.$store.state.user.user.isParticipant==0'>
+          <b-nav-item router-link :to="'/'">Acceuil</b-nav-item>
+          <b-nav-item router-link :to="'Demo'">Demo</b-nav-item>
+          <b-nav-item router-link :to="'Session'">Session</b-nav-item>
+          <b-nav-item router-link :to="'Classement'">Classement</b-nav-item>
+          <b-nav-item href="https://www.ontheroadagame.fr/notre-equipe-de-voya-joueurs/" target="_blank">A Propos</b-nav-item>
+          <b-nav-item href="https://www.ontheroadagame.fr/goodies/" target="_blank">Goodies</b-nav-item>
+        </b-navbar-nav>
+
+        <b-navbar-nav v-if='this.$store.state.user.isConnected && this.$store.state.user.user.isParticipant==1'>
+          <b-nav-item router-link :to="'/'">Acceuil</b-nav-item>
+          <b-nav-item router-link :to="'Demo'">Demo</b-nav-item>
+          <b-nav-item router-link :to="'Session'">Session</b-nav-item>
+          <b-nav-item router-link :to="'Defi'">Défi</b-nav-item>
           <b-nav-item router-link :to="'Classement'">Classement</b-nav-item>
           <b-nav-item href="https://www.ontheroadagame.fr/notre-equipe-de-voya-joueurs/" target="_blank">A Propos</b-nav-item>
           <b-nav-item href="https://www.ontheroadagame.fr/goodies/" target="_blank">Goodies</b-nav-item>
@@ -39,6 +58,7 @@
             <b-dropdown-item v-on:click="logout()">Deconnexion</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
+
       </b-collapse>
     </b-navbar>
   </div>

@@ -14,4 +14,17 @@ export default {
         return api().get('/Fetchses')
     },
 
+    getSessionnames(){
+        return api().get('/Fetchsesname')
+    },
+
+    getDefi(){
+        return api().get('/Fetchdefi')
+    }, 
+
+    registerDefi(data){
+        console.log(data)
+        return api().post('/Createdefi', data)
+    }
+
 }

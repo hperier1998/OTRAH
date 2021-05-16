@@ -13,17 +13,17 @@ module.exports = {
 
     async modifySes(req, res){
         try {
-            if(req.body.titre != ''){
-                await Sessions.titreModify(req.body, function(callback){})
-            }
             if(req.body.datedebut != ''){
                 await Sessions.datedebutModify(req.body, function(callback){})
             }
             if(req.body.datefin != ''){
                 await Sessions.datefinModify(req.body, function(callback){})
             }
-            if(req.body.description != ''){
-                await Sessions.descriptionModify(req.body, function(callback){})
+            if(req.body.sessioanctive != ''){
+                await Sessions.sessionstateModify(req.body, function(callback){})
+            }
+            if(req.body.titre != ''){
+                await Sessions.titreModify(req.body, function(callback){})
             }
             res.send('Session mis a jour')
         } catch (error) {
@@ -47,5 +47,39 @@ module.exports = {
             });
             res.send(sessionStore)
         })
+    },
+
+    async getDefi(req,res){
+        await Sessions.getDefi(function(data){
+            let defiStore = []
+            let i = 1
+            data.forEach(def => {
+                let defis = {
+                    Titre:def.Titre,
+                    Description:def.Description
+                }
+                defiStore.push(defis)
+                i+=1
+            });
+            res.send(defiStore)
+        })
+    },
+
+    async getSessionnames(req, res){
+        try {
+            await Sessions.getSessionname(function(callback){res.send(callback)})
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    async registerDefi(req, res){
+        try {
+            await Sessions.createDefi(req.body, function(){
+                res.send({Message:'Defi created.'})
+            })
+        } catch (error) {
+            
+        }
     },
 }

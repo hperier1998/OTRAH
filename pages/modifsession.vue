@@ -5,6 +5,8 @@
     <div>
       <b-form @submit="onSubmit" v-if="show">
 
+        <select ref="selected" v-model="selected" name="selecttitle" id="selecttitle" required=""></select>
+
         <b-form-group id="input-group-1" label="Titre:" label-for="input-1">
           <b-form-input
             id="input-1"
@@ -31,17 +33,17 @@
             ></b-form-input>
           </b-form-group>
 
-          <b-form-group id="input-group-4" label="Description:" label-for="input-4">
-            <b-form-input
+          <b-form-group id="input-group-4" label="Session Actif:" label-for="input-4">
+            <b-form-select
               id="input-4"
-              v-model="form.desc"
-              type="text"
-              placeholder="Entrez la description"
-            ></b-form-input>
+              v-model="form.act"
+              :options="active"
+              required
+            ></b-form-select>
           </b-form-group>
 
         <div class="text-center">
-          <b-button type="submit" variant="primary">Submit</b-button>
+          <b-button type="submit" variant="primary">Valider</b-button>
         </div>
       </b-form>
     </div>
@@ -58,8 +60,15 @@
   import Footer from './footer.vue'
 
   export default {
-    beforeMount() {
-      this.getSessionNames()
+    mounted: async function(){
+      let sessions = await ses.getSessionnames()
+      sessions = sessions.data
+      let select = document.getElementsByTagName('select')[0]
+      sessions.forEach(session => {
+        let option = document.createElement('option')
+        option.append(session.Titre)
+        select.append(option)
+      })
     },
 
     components: { Navbar, Footer },
@@ -67,11 +76,15 @@
     data() {
       return {
         form: {
+          selecttitle: '',
           title: '',
           datestart: '',
           dateend: '',
           desc: '',
-        }
+          act: null,
+        },
+        active: [{ text: 'Selectionez un statut', value: null}, 'Session Actif', 'Non Actif'],
+        show: true
       }
     },
 
@@ -84,20 +97,13 @@
 
       async modifySes(){
         await ses.modifySes({
+          selecttitle:this.$refs.selected.value,
           titre:this.form.title,
           datedebut:this.form.datestart,
           datefin:this.form.dateend,
-          description:this.form.desc
+          sessionactive:this.form.act
         }).then(response => {console.log(response)})
-      },
-
-      async getSessionNames(){
-        let response = await ses.getSessionNames()
-        response.data.forEach(element => {console.log(element), this.sessionnames.push(element)});
-        console.log('patate')
-        console.log(this.sessionnames)
       }
-    
     }
   }
 </script>

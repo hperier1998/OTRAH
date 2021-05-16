@@ -94,20 +94,8 @@
       </b-container>
     </div>
 
-    <div class="session">
-      <h2 class="session-spacing">Prochaine Session: </h2>
-      <h3 class="text-center">Session 1 : Session de Printemps</h3>
-      <no-ssr>
-        <flip-countdown deadline="2022-12-25 00:00:00"></flip-countdown>
-      </no-ssr>
-      <h3 class="text-center">Session 2 : Session d'Été</h3>
-      <no-ssr>
-        <flip-countdown deadline="2023-3-25 00:00:00"></flip-countdown>
-      </no-ssr>
-    </div>
-
     <div class="sesbutton-position">
-      <b-button pill variant="warning" size="lg" router-link :to="'Session'">S'inscrire a une session</b-button>
+      <b-button pill variant="warning" size="lg" router-link :to="'Session'">Voire les Sessions</b-button>
     </div>
 
     <Footer/>
@@ -131,18 +119,18 @@
 
 .sesbutton-position {
   text-align: center;
-  margin-bottom: 2em;
+  margin-top: 5em;
+  margin-bottom: 5em;
 }
 
 </style>
 
 <script>
-  import FlipCountdown from 'vue2-flip-countdown'
   import Navbar from './headernavbar.vue'
   import Footer from './footer.vue'
 
   export default {
-    components: { FlipCountdown, Navbar, Footer },
+    components: { Navbar, Footer },
 
     data() {
       return {

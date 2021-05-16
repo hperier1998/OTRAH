@@ -106,8 +106,8 @@
           </b-form-group>
 
         <div class="text-center">
-          <b-button type="submit" variant="primary">Submit</b-button>
-          <b-button type="reset" variant="danger">Reset</b-button>
+          <b-button type="submit" variant="primary">Valider</b-button>
+          <b-button type="reset" variant="danger">Réinitialiser</b-button>
         </div>
       </b-form>
     </div>

@@ -3,8 +3,8 @@ let connection = require('../database')
 class Sessions {
     static createSes (content, cb) {
         try{
-            connection.query('INSERT INTO session SET Titre = ?, DateDebut = ?, DateFin = ?, Description = ?', 
-            [content.titre, content.datedebut, content.datefin, content.description], 
+            connection.query('INSERT INTO session SET Titre = ?, DateDebut = ?, DateFin = ?, SessionActive = ?', 
+            [content.titre, content.datedebut, content.datefin, content.sessionactive], 
             (err, result) => {
                 if(err) throw err
                 cb(result)
@@ -18,7 +18,7 @@ class Sessions {
     static titreModify (content, cb) {
         try {         
             console.log(content)   
-            connection.query('UPDATE session SET Titre = ? WHERE ID = ?', [content.titre, content.ID], 
+            connection.query('UPDATE session SET Titre = ? WHERE Titre = ?', [content.titre, content.selecttitle], 
             (err, result) => {
                 if(err) throw err
                 cb(result)
@@ -32,7 +32,7 @@ class Sessions {
     static datedebutModify (content, cb) {
         try {         
             console.log(content)   
-            connection.query('UPDATE session SET DateDebut = ? WHERE ID = ?', [content.datedebut, content.ID], 
+            connection.query('UPDATE session SET DateDebut = ? WHERE Titre = ?', [content.datedebut, content.selecttitle], 
             (err, result) => {
                 if(err) throw err
                 cb(result)
@@ -46,7 +46,7 @@ class Sessions {
     static datefinModify (content, cb) {
         try {         
             console.log(content)   
-            connection.query('UPDATE session SET DateFin = ? WHERE ID = ?', [content.datefin, content.ID], 
+            connection.query('UPDATE session SET DateFin = ? WHERE Titre = ?', [content.datefin, content.selecttitle], 
             (err, result) => {
                 if(err) throw err
                 cb(result)
@@ -57,10 +57,10 @@ class Sessions {
         }
     }
 
-    static descriptionModify (content, cb) {
+    static sessionstateModify (content, cb) {
         try {         
             console.log(content)   
-            connection.query('UPDATE session SET Description = ? WHERE ID = ?', [content.description, content.ID], 
+            connection.query('UPDATE session SET SessionActive = ? WHERE Titre = ?', [content.sessionactive, content.selecttitle], 
             (err, result) => {
                 if(err) throw err
                 cb(result)
@@ -84,6 +84,43 @@ class Sessions {
         }
     }
 
+    static getSessionname (cb){
+        try {
+            connection.query('SELECT Titre FROM session',
+            (err,row)=> {
+                if(err) throw err
+                    cb(row)
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    static getDefi (cb){
+        try {
+            connection.query('SELECT Titre,Description FROM defi',
+            (err,row)=> {
+                if(err) throw err
+                    cb(row)
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    static createDefi (content, cb) {
+        try{
+            connection.query('INSERT INTO defi SET Titre = ?, Description = ?', 
+            [content.titredefi, content.descriptiondefi], 
+            (err, result) => {
+                if(err) throw err
+                cb(result)
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
 }
 
 module.exports = Sessions

@@ -12,17 +12,17 @@
             id="input-1"
             v-model="form.email"
             type="email"
-            placeholder="E-mail"
+            placeholder="Entrez votre e-mail"
             required
           ></b-form-input>
         </b-form-group>
 
-        <b-form-group id="input-group-2" label="Password:" label-for="input-2">
+        <b-form-group id="input-group-2" label="Mot de Pass:" label-for="input-2">
           <b-form-input
             id="input-2"
             v-model="form.password"
             type="password"
-            placeholder="Mot de passe"
+            placeholder="Entrez votre mot de passe"
             required
           ></b-form-input>
         </b-form-group>
@@ -41,9 +41,8 @@
 
 <style>
 .connection-container {
-  padding: 200px;
-  margin-top: 3em;
-  margin-bottom: 5em;
+  margin-top: 6em;
+  margin-bottom: 5.2em;
 }
 </style>
 

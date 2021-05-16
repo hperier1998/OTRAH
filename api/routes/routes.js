@@ -36,6 +36,12 @@ router.post('/Modifyses', ses.modifySes)
 
 router.get('/Fetchses', ses.getSession)
 
+router.get('/Fetchsesname', ses.getSessionnames)
+
+router.get('/Fetchdefi', ses.getDefi)
+
+router.post('/Createdefi', ses.registerDefi)
+
 router.post('/Addusersession', auth.addUsertosession)
 
 module.exports = router
