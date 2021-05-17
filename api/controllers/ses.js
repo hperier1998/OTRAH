@@ -120,5 +120,13 @@ module.exports = {
             console.log(error)
         }
     }, 
+
+    async getProofs(req, res){
+        try {
+            await Sessions.getProofs(req, function(callback){res.send(callback)})
+        } catch (error) {
+            console.log(error)
+        }
+    }, 
     
 }

@@ -24,22 +24,10 @@
         </div>
 
            <h1 class="text-center"> Vos depots </h1>
-          <div>
-            <b-table striped hover :items="defilist"></b-table>
+          <div class="proofContainer">
           </div>
       </div>
 
-      <div v-if='this.$store.state.user.isConnected && this.$store.state.user.user.Admin==1'>
-        <div>
-          <b-table striped hover :items="defilist"></b-table>
-        </div>
-        <div class="sesbutton-position">
-          <b-button pill variant="warning" size="lg" router-link :to="'Creationdefi'">Créer un défi</b-button>
-        </div>
-        <div class="sesbutton-position">
-          <b-button pill variant="warning" size="lg" router-link :to="'Modifdefi'">Modifier un défi</b-button>
-        </div>
-      </div>
 
     </div>
     <Footer/>  
@@ -54,6 +42,17 @@
 
 .spacing {
   margin-top: 10em;
+}
+
+.proofContainer{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.depotcontainer{
+  margin-left: 10px;
+  margin-right: 10px;
 }
 </style>
 
@@ -81,6 +80,30 @@
         option.append(defi.Titre)
         select.append(option)
       })
+      let mainContainer = document.getElementsByClassName('proofContainer')[0]
+      let proofs = await ses.getProofs({ID:this.$store.state.user.user.ID})
+      proofs = proofs.data
+      proofs.forEach(proof => {
+        let container = document.createElement('div')
+        container.classList.add('depotcontainer')
+        let spacing = document.createElement('br')
+        spacing.classList.add('spacing')
+        let proofPicture = document.createElement('img')
+        proofPicture.src = require(('../img/uploads/' + proof.Attachement))
+        proofPicture.width = (200)
+        proofPicture.height = (200)
+        let proofTitre = document.createElement('h2')
+        proofTitre.innerHTML = proof.Titre
+        let proofStatut = document.createElement('h3')
+        proofStatut.innerHTML = proof.Statut
+        mainContainer.append(container)
+        container.append(spacing)
+        container.append(spacing)
+        container.append(proofTitre)
+        container.append(proofPicture)
+        container.append(proofStatut)
+        container.append(spacing)
+      })
     },
 
     data() {
@@ -100,7 +123,6 @@
         onSubmit(event) {
         event.preventDefault()
         this.sendAttachment()
-        this.$router.push({name: 'defi'})
         },
 
         selectFile(){

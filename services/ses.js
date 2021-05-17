@@ -49,6 +49,10 @@ export default {
     
     sendPic(data){
         return api().post('/SendPic', data)
+    },
+
+    getProofs(data){
+        return api().post('/GetProofs', data)
     }
 
 }

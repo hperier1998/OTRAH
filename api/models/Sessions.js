@@ -187,7 +187,22 @@ class Sessions {
         catch(err){
             console.log(err)
         }
-    }    
+    } 
+
+    static getProofs (content, cb) {
+        try {         
+            console.log(content)   
+            connection.query('SELECT defi.Titre, depot.Attachement, depot.Statut FROM depot, defi WHERE depot.ID_Defi = defi.ID_Defi AND ? = depot.ID_User', 
+            [content.body.ID], 
+            (err, result) => {
+                if(err) throw err
+                cb(result)
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
+    } 
     
 }
 

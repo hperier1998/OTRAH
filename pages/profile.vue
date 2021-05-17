@@ -2,7 +2,8 @@
   <div>
     <Navbar/>
     
-    <div>
+    <div class="text-center">
+      <h1 class="header-spacing"> Vos Informations </h1>
       <h2> Prenom: </h2>
       <h2> Nom: </h2>
       <h2> Date de Naissance: </h2>
@@ -22,6 +23,13 @@
 
   </div>
 </template>
+
+<style>
+.header-spacing{
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+</style>
 
 <script>
   import Navbar from './headernavbar.vue'

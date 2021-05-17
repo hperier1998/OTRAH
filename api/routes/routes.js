@@ -76,4 +76,6 @@ router.post('/AddPic', upload.single('file'),(req,res)=>{
 
 router.post('/SendPic', controllerFunctions.sendPic)
 
+router.post('/GetProofs', ses.getProofs)
+
 module.exports = router

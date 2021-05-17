@@ -3,9 +3,12 @@
     <Navbar/>
     
     <div>
-      <b-form @submit="onSubmit" v-if="show">
 
-        <select ref="selected" v-model="selected" name="selecttitle" id="selecttitle" required=""></select>
+      <div class="text-center">
+        <h1 class="header-spacing"> Modifier une Session </h1>
+      </div>
+      <b-form @submit="onSubmit" v-if="show">
+        <p> Selectioner une session a modifier: <select ref="selected" v-model="selected" name="selecttitle" id="selecttitle" required=""></select> </p>
 
         <b-form-group id="input-group-1" label="Titre:" label-for="input-1">
           <b-form-input
@@ -44,6 +47,8 @@
 
         <div class="text-center">
           <b-button type="submit" variant="primary">Valider</b-button>
+          <br>
+          <br>
         </div>
       </b-form>
     </div>

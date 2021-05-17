@@ -3,7 +3,11 @@
     <Navbar/>
     
     <div>
+      <div class="text-center">
+        <h1 class="header-spacing"> Créer une Session </h1>
+      </div>
       <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+
         <b-form-group id="input-group-1" label="Titre:" label-for="input-1">
           <b-form-input
             id="input-1"
@@ -45,6 +49,9 @@
         <div class="text-center">
           <b-button type="submit" variant="primary">Valider</b-button>
           <b-button type="reset" variant="danger">Réinitialiser</b-button>
+          <br>
+          <br>
+          <br>
         </div>
       </b-form>
     </div>
@@ -53,6 +60,13 @@
 
   </div>
 </template>
+
+<style>
+.header-spacing{
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+</style>
 
 <script>
 

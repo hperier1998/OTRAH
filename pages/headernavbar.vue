@@ -36,6 +36,16 @@
           <b-nav-item href="https://www.ontheroadagame.fr/goodies/" target="_blank">Goodies</b-nav-item>
         </b-navbar-nav>
 
+        <b-navbar-nav v-if='this.$store.state.user.isConnected && this.$store.state.user.user.isParticipant==2 && this.$store.state.user.user.Admin==1'>
+          <b-nav-item router-link :to="'/'">Acceuil</b-nav-item>
+          <b-nav-item router-link :to="'Demo'">Demo</b-nav-item>
+          <b-nav-item router-link :to="'Session'">Session</b-nav-item>
+          <b-nav-item router-link :to="'Defiadmin'">Défi</b-nav-item>
+          <b-nav-item router-link :to="'Classement'">Classement</b-nav-item>
+          <b-nav-item href="https://www.ontheroadagame.fr/notre-equipe-de-voya-joueurs/" target="_blank">A Propos</b-nav-item>
+          <b-nav-item href="https://www.ontheroadagame.fr/goodies/" target="_blank">Goodies</b-nav-item>
+        </b-navbar-nav>
+
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto" v-if='!this.$store.state.user.isConnected'>
           <b-nav-item-dropdown right>
