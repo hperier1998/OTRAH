@@ -150,7 +150,6 @@ class Sessions {
 
     static defidescModify (content, cb) {
         try {         
-            console.log(content)   
             connection.query('UPDATE defi SET Description = ? WHERE Titre = ?', [content.descriptiondefi, content.selecttitledefi], 
             (err, result) => {
                 if(err) throw err
@@ -161,6 +160,35 @@ class Sessions {
             console.log(err)
         }
     }
+
+    static defiSelect (content, cb) {
+        try {         
+            console.log(content)   
+            connection.query('SELECT Titre FROM defi, utilisateur WHERE utilisateur.ID = ? AND utilisateur.Admin = 0 AND utilisateur.isParticipant = 1', [content.ID], 
+            (err, result) => {
+                if(err) throw err
+                cb(result)
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
+    static getDefiByName (content, cb) {
+        try {         
+            console.log(content)   
+            connection.query('SELECT ID_Defi FROM defi WHERE Titre = ?', [content.body.selecttitledefi], 
+            (err, result) => {
+                if(err) throw err
+                cb(result)
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
+    }    
+    
 }
 
 module.exports = Sessions

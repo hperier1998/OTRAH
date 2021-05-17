@@ -104,4 +104,21 @@ module.exports = {
             console.log(err)
         }
     },
+
+    async defiSelects(req, res){
+        try {
+            await Sessions.defiSelect(req, function(callback){res.send(callback)})
+        } catch (error) {
+            console.log(error)
+        }
+    }, 
+
+    async getDefiByName(req, res){
+        try {
+            await Sessions.getDefiByName(req, function(callback){res.send(callback)})
+        } catch (error) {
+            console.log(error)
+        }
+    }, 
+    
 }

@@ -35,4 +35,20 @@ export default {
         return api().post('/Modifydefi', data)
     },
 
+    defiNameselect(data){
+        return api().post('/Definameselect', data)
+    },
+
+    getDefiByName(data){
+        return api().post('/GetDefiByName', data)
+    },
+
+    addPic(data){
+        return api().post('/AddPic', data)
+    },
+    
+    sendPic(data){
+        return api().post('/SendPic', data)
+    }
+
 }
