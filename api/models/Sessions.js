@@ -191,7 +191,6 @@ class Sessions {
 
     static getProofs (content, cb) {
         try {         
-            console.log(content)   
             connection.query('SELECT defi.Titre, depot.Attachement, depot.Statut FROM depot, defi WHERE depot.ID_Defi = defi.ID_Defi AND ? = depot.ID_User', 
             [content.body.ID], 
             (err, result) => {
@@ -203,6 +202,46 @@ class Sessions {
             console.log(err)
         }
     } 
+
+    static getAllProofs (content, cb) {
+        try {         
+            connection.query('SELECT utilisateur.ID AS userid, depot.ID AS proofid, defi.Titre, depot.Attachement, depot.Statut, utilisateur.Nom, utilisateur.Prenom FROM depot, defi, utilisateur WHERE depot.ID_Defi = defi.ID_Defi AND depot.ID_User = utilisateur.ID AND depot.statut != "Valider"',  
+            (err, result) => {
+                if(err) throw err
+                cb(result)
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
+    } 
+
+    static addPoints (content, cb) {
+        try {          
+            connection.query('UPDATE utilisateur SET score = score + ? WHERE ? = ID', [content.body.points, content.body.userID], 
+            (err, result) => {
+                if(err) throw err
+                cb(result)
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
+    static validateProof (content, cb) {
+        try {        
+            console.log(content)   
+            connection.query('UPDATE depot SET statut = ? WHERE ? = ID', [content.body.statut, content.body.proofID], 
+            (err, result) => {
+                if(err) throw err
+                cb(result)
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
     
 }
 

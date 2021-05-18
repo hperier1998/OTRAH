@@ -128,5 +128,31 @@ module.exports = {
             console.log(error)
         }
     }, 
+
+    async getAllProofs(req, res){
+        try {
+            await Sessions.getAllProofs(req, function(callback){res.send(callback)})
+        } catch (error) {
+            console.log(error)
+        }
+    }, 
+
+    
+    async addPoints(req, res){
+        try {
+            await Sessions.addPoints(req, function(callback){res.send(callback)})
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    
+    async validateProof(req, res){
+        try {
+            await Sessions.validateProof(req, function(callback){res.send(callback)})
+        } catch (error) {
+            console.log(error)
+        }
+    },
     
 }

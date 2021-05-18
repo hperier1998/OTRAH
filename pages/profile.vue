@@ -14,7 +14,7 @@
       <h2> Code Postal: </h2>
       <h2> Pays: </h2>
       <div class="sesbutton-position">
-        <b-button pill variant="warning" size="lg" router-link :to="'Modifyprofile'">Modifier votre profil</b-button>
+        <b-button pill class="btn-color" size="lg" router-link :to="'Modifyprofile'">Modifier votre profil</b-button>
       </div>
     </div>
 
@@ -28,6 +28,11 @@
 .header-spacing{
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+.btn-color{
+  background-color: #e77a35 !important;
+  border: 4px solid #e77a35  !important;
 }
 </style>
 

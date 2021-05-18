@@ -28,8 +28,8 @@
         </b-form-group>
 
         <div class="text-center">
-          <b-button type="submit" variant="primary">Se Connecter</b-button>
-          <b-button variant="primary" to="/profile">Mot de Passe Oublier</b-button>
+          <b-button type="submit" class="btn-color">Se Connecter</b-button>
+          <b-button class="btn-color" to="/profile">Mot de Passe Oublier</b-button>
         </div>
       </b-form>
     </div>
@@ -43,6 +43,11 @@
 .connection-container {
   margin-top: 11em;
   margin-bottom: 12em;
+}
+
+.btn-color{
+  background-color: #e77a35 !important;
+  border: 4px solid #e77a35  !important;
 }
 
 </style>

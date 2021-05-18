@@ -19,7 +19,7 @@
             <input type="file" ref="file" @change="selectFile" name="defiproof" accept="image/">
             <br>
             <br> 
-            <b-button type="submit" variant="primary">Envoyer</b-button>
+            <b-button type="submit" class="btn-color">Envoyer</b-button>
           </b-form>
         </div>
 
@@ -51,8 +51,13 @@
 }
 
 .depotcontainer{
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.btn-color{
+  background-color: #e77a35 !important;
+  border: 4px solid #e77a35  !important;
 }
 </style>
 
@@ -94,14 +99,14 @@
         proofPicture.height = (200)
         let proofTitre = document.createElement('h2')
         proofTitre.innerHTML = proof.Titre
-        let proofStatut = document.createElement('h3')
-        proofStatut.innerHTML = proof.Statut
+        let proofStatut = document.createElement('h4')
+        proofStatut.innerHTML = 'Statut: ' + proof.Statut
         mainContainer.append(container)
         container.append(spacing)
         container.append(spacing)
         container.append(proofTitre)
         container.append(proofPicture)
-        container.append(proofStatut)
+        container.append(proofStatut) 
         container.append(spacing)
       })
     },

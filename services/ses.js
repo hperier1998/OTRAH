@@ -53,6 +53,18 @@ export default {
 
     getProofs(data){
         return api().post('/GetProofs', data)
+    },
+
+    getAllProofs(data){
+        return api().post('GetAllProofs', data)
+    },
+
+    addPoints(data){
+        return api().post('AddPoints', data)
+    },
+
+    validateProof(data){
+        return api().post('ValidateProof', data)
     }
 
 }

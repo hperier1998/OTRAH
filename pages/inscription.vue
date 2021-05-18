@@ -106,8 +106,10 @@
           </b-form-group>
 
         <div class="text-center">
-          <b-button type="submit" variant="primary">Valider</b-button>
-          <b-button type="reset" variant="danger">Réinitialiser</b-button>
+          <b-button type="submit" class="btn-color">Valider</b-button>
+          <b-button type="reset" class="btn-color">Réinitialiser</b-button>
+          <br>
+          <br>
         </div>
       </b-form>
     </div>
@@ -116,6 +118,13 @@
 
   </div>
 </template>
+
+<style>
+.btn-color{
+  background-color: #e77a35 !important;
+  border: 4px solid #e77a35  !important;
+}
+</style>
 
 <script>
 

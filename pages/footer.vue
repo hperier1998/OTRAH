@@ -2,7 +2,7 @@
   <div>
     <!-- Footer -->
     <div>
-    <footer class="bg-warning text-center text-lg-start">
+    <footer class="bg-color text-center text-lg-start">
       <!-- Grid container -->
       <div class="container p-4">
         <!--Grid row-->
@@ -56,6 +56,9 @@
 </template>
 
 <style>
+.bg-color{
+  background-color: #e77a35 !important;
+}
 </style>
 
 <script>

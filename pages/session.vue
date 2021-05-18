@@ -10,7 +10,7 @@
           <b-table striped hover :items="sessions"></b-table>
         </div>
         <div class="sesbutton-position">
-          <b-button pill variant="warning" size="lg" router-link :to="'Connexion'">Veuillez vous connectez</b-button>
+          <b-button pill class="btn-color" size="lg" router-link :to="'Connexion'">Veuillez vous connectez</b-button>
         </div>
       </div>
       
@@ -19,7 +19,7 @@
           <b-table striped hover :items="sessions"></b-table>
         </div>
         <div class="sesbutton-position">
-          <b-button pill variant="warning" size="lg" @click='registerSubmit()'>S'inscrire a la session active</b-button>
+          <b-button pill class="btn-color" size="lg" @click='registerSubmit()'>S'inscrire a la session active</b-button>
         </div>
       </div>
 
@@ -28,8 +28,8 @@
           <b-table striped hover :items="sessions"></b-table>
         </div>
         <div class="sesbutton-position">
-          <b-button pill variant="warning" size="lg" router-link :to="'Creationsession'">Créer une session</b-button>
-          <b-button pill variant="warning" size="lg" router-link :to="'Modifsession'">Modifier les sessions</b-button>
+          <b-button pill class="btn-color" size="lg" router-link :to="'Creationsession'">Créer une session</b-button>
+          <b-button pill class="btn-color" size="lg" router-link :to="'Modifsession'">Modifier les sessions</b-button>
         </div>
       </div>
 
@@ -38,8 +38,8 @@
           <b-table striped hover :items="sessions"></b-table>
         </div>
         <div class="sesbutton-position">
-          <b-button pill variant="warning" size="lg" disabled>Vous etes deja inscrit a la session active</b-button>
-          <b-button pill variant="warning" size="lg" router-link :to="'Defi'">Voire les Défis</b-button>
+          <b-button pill class="btn-color" size="lg" disabled>Vous etes deja inscrit a la session active</b-button>
+          <b-button pill class="btn-color" size="lg" router-link :to="'Defi'">Voire les Défis</b-button>
         </div>
       </div>
 
@@ -57,6 +57,12 @@
 .spacing {
   margin-top: 10em;
 }
+
+.btn-color{
+  background-color: #e77a35 !important;
+  border: 4px solid #e77a35  !important;
+}
+
 </style>
 
 <script>

@@ -78,4 +78,10 @@ router.post('/SendPic', controllerFunctions.sendPic)
 
 router.post('/GetProofs', ses.getProofs)
 
+router.post('/GetAllProofs', ses.getAllProofs)
+
+router.post('/AddPoints', ses.addPoints)
+
+router.post('/ValidateProof', ses.validateProof)
+
 module.exports = router

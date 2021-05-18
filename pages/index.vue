@@ -86,7 +86,7 @@
     </div>
 
     <div class="sesbutton-position">
-      <b-button pill variant="warning" size="lg" router-link :to="'Session'">Voir les Sessions</b-button>
+      <b-button pill class="btn-color" size="lg" router-link :to="'Session'">Voir les Sessions</b-button>
     </div>
 
     <Footer/>
@@ -113,6 +113,12 @@
   margin-top: 5em;
   margin-bottom: 5em;
 }
+
+.btn-color{
+  background-color: #e77a35 !important;
+  border: 4px solid #e77a35  !important;
+}
+
 
 </style>
 

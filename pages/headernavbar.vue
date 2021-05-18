@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="light" variant="warning">
+    <b-navbar toggleable="lg" type="light" style="background-color:#e77a35">
       <b-navbar-brand router-link :to="'/'">
         <img src="@/images/OTRAG_Logo.png" alt="OnTheRoadAGameLogo">
       </b-navbar-brand>
