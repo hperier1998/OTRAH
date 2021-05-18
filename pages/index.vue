@@ -19,33 +19,28 @@
         <b-carousel-slide
           caption="At Home"
           text="New edition"
-          img-src="https://jmbvoyages.fr/wp-content/uploads/2018/10/bandeau-on-the-road-reseaux-sociaux.jpg"
+          img-src="@/images/carousel1.jpg"
         ></b-carousel-slide>
 
         <!-- Text slides with image -->
         <b-carousel-slide
           caption="At Home"
           text="New edition"
-          img-src="https://blogvoyages.fr/wp-content/uploads/2015/07/RoadTrip-USA-1280x720.jpg"
+          img-src="@/images/carousel2.jpg"
         ></b-carousel-slide>
 
         <!-- Text slides with image -->
         <b-carousel-slide
           caption="At Home"
           text="New edition"
-          img-src="https://finistere2point9.fr/wp-content/uploads/2020/05/finistere-van.jpg"
+          img-src="@/images/carousel3.jpg"
         ></b-carousel-slide>
 
         <!-- Text slides with image -->
         <b-carousel-slide
           caption="At Home"
           text="New edition"
-          img-src="https://camp-us.fr/wp-content/uploads/2020/12/artisans2.png"
-        ></b-carousel-slide>
-
-        <!-- Text slides with image -->
-        <b-carousel-slide
-          img-src="https://fortlointain.com/wp-content/uploads/road-trip-en-californie-route-joshua-tree-1.jpg"
+          img-src="@/images/carousel4.jpg"
         ></b-carousel-slide>
     </b-carousel>
 
