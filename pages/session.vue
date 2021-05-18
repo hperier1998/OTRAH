@@ -29,8 +29,6 @@
         </div>
         <div class="sesbutton-position">
           <b-button pill variant="warning" size="lg" router-link :to="'Creationsession'">Créer une session</b-button>
-        </div>
-        <div class="sesbutton-position">
           <b-button pill variant="warning" size="lg" router-link :to="'Modifsession'">Modifier les sessions</b-button>
         </div>
       </div>

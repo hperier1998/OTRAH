@@ -11,8 +11,6 @@
         </div>
         <div class="sesbutton-position">
           <b-button pill variant="warning" size="lg" router-link :to="'Creationdefi'">Créer un défi</b-button>
-        </div>
-        <div class="sesbutton-position">
           <b-button pill variant="warning" size="lg" router-link :to="'Modifdefi'">Modifier un défi</b-button>
         </div>
       </div>

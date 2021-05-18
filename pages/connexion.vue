@@ -41,9 +41,10 @@
 
 <style>
 .connection-container {
-  margin-top: 6em;
-  margin-bottom: 5.2em;
+  margin-top: 11em;
+  margin-bottom: 12em;
 }
+
 </style>
 
 <script>
