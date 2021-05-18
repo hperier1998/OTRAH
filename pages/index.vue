@@ -9,48 +9,44 @@
       controls
       indicators
       background="#ababab"
+      style="text-shadow: 1px 1px 2px #333;"
       img-width="1024"
       img-height="480"
-      style="text-shadow: 1px 1px 2px #333;"
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd"
     >
-      <!-- Text slides with image -->
-      <b-carousel-slide
-        caption="Bite en bois"
-        text="Viktor."
-        img-src="https://picsum.photos/1024/480/?image=52"
-      ></b-carousel-slide>
+        <!-- Text slides with image -->
+        <b-carousel-slide
+          caption="At Home"
+          text="New edition"
+          img-src="https://jmbvoyages.fr/wp-content/uploads/2018/10/bandeau-on-the-road-reseaux-sociaux.jpg"
+        ></b-carousel-slide>
 
-      <!-- Slides with custom text -->
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
-        <h1>Hello world!</h1>
-      </b-carousel-slide>
+        <!-- Text slides with image -->
+        <b-carousel-slide
+          caption="At Home"
+          text="New edition"
+          img-src="https://blogvoyages.fr/wp-content/uploads/2015/07/RoadTrip-USA-1280x720.jpg"
+        ></b-carousel-slide>
 
-      <!-- Slides with image only -->
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58"></b-carousel-slide>
+        <!-- Text slides with image -->
+        <b-carousel-slide
+          caption="At Home"
+          text="New edition"
+          img-src="https://finistere2point9.fr/wp-content/uploads/2020/05/finistere-van.jpg"
+        ></b-carousel-slide>
 
-      <!-- Slides with img slot -->
-      <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
-      <b-carousel-slide>
-        <template #img>
-          <img
-            class="d-block img-fluid w-100"
-            width="1024"
-            height="480"
-            src="https://picsum.photos/1024/480/?image=55"
-            alt="image slot"
-          >
-        </template>
-      </b-carousel-slide>
+        <!-- Text slides with image -->
+        <b-carousel-slide
+          caption="At Home"
+          text="New edition"
+          img-src="https://camp-us.fr/wp-content/uploads/2020/12/artisans2.png"
+        ></b-carousel-slide>
 
-      <!-- Slide with blank fluid image to maintain slide aspect ratio -->
-      <b-carousel-slide caption="Blank Image" img-blank img-alt="Blank image">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros felis, tincidunt
-          a tincidunt eget, convallis vel est. Ut pellentesque ut lacus vel interdum.
-        </p>
-      </b-carousel-slide>
+        <!-- Text slides with image -->
+        <b-carousel-slide
+          img-src="https://fortlointain.com/wp-content/uploads/road-trip-en-californie-route-joshua-tree-1.jpg"
+        ></b-carousel-slide>
     </b-carousel>
 
     <h1 class="text-center"> On The Road a Game : At Home </h1>
@@ -70,32 +66,32 @@
             <b-img src="@/images/Flashcard3.png" fluid alt="Responsive image"></b-img>
           </b-col>
           <div class="w-100"></div>
-          <b-col>Column</b-col>
-          <b-col>Column</b-col>
-          <b-col>Column</b-col>
+          <b-col>Déstination inconnu</b-col>
+          <b-col>Challenge</b-col>
+          <b-col>Plusieurs jours</b-col>
         </b-row>
       </b-container>
       <b-container>
         <b-row>
           <b-col>
-            <b-img src="@/images/Flashcard1.png" fluid alt="Responsive image"></b-img>
+            <b-img src="@/images/Flashcard4.png" fluid alt="Responsive image"></b-img>
           </b-col>
           <b-col>
             <b-img src="@/images/Flashcard2.png" fluid alt="Responsive image"></b-img>
           </b-col>
           <b-col>
-            <b-img src="@/images/Flashcard3.png" fluid alt="Responsive image"></b-img>
+            <b-img src="@/images/Flashcard5.png" fluid alt="Responsive image"></b-img>
           </b-col>
           <div class="w-100"></div>
-          <b-col>Column</b-col>
-          <b-col>Column</b-col>
-          <b-col>Column</b-col>
+          <b-col>Défi</b-col>
+          <b-col>Récompense</b-col>
+          <b-col>Attractif</b-col>
         </b-row>
       </b-container>
     </div>
 
     <div class="sesbutton-position">
-      <b-button pill variant="warning" size="lg" router-link :to="'Session'">Voire les Sessions</b-button>
+      <b-button pill variant="warning" size="lg" router-link :to="'Session'">Voir les Sessions</b-button>
     </div>
 
     <Footer/>
@@ -147,4 +143,4 @@
       }
     }
   }
-</script>
+</script>npm ru
